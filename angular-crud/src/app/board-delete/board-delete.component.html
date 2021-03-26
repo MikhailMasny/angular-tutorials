@@ -1,0 +1,38 @@
+<h1>Board Delete</h1>
+
+<form
+    name="form"
+    (ngSubmit)="f.form.valid && onSubmit()"
+    #f="ngForm"
+    novalidate
+    >
+    <div>
+        <label for="id">Id: </label>
+        <input
+            type="text"
+            name="id"
+            [(ngModel)]="form.id"
+            required
+            #id="ngModel"
+        />
+        <div
+            role="alert"
+            *ngIf="id.errors && f.submitted"
+        >
+        Id is required!
+        </div>
+    </div>
+
+    <div>
+        <button>Send</button>
+    </div>
+
+    <div>
+        <div
+            role="alert"
+            *ngIf="f.submitted"
+        >
+            Status: {{ message }}
+        </div>
+    </div>
+</form>

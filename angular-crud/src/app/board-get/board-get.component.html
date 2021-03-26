@@ -1,0 +1,64 @@
+<h1>Board Get</h1>
+
+<form
+    name="form"
+    (ngSubmit)="f.form.valid && onSubmit()"
+    #f="ngForm"
+    novalidate
+    >
+    <div>
+        <label for="id">Id: </label>
+        <input
+            type="text"
+            name="id"
+            [(ngModel)]="form.id"
+            required
+            #id="ngModel"
+        />
+        <div
+            role="alert"
+            *ngIf="id.errors && f.submitted"
+        >
+        Id is required!
+        </div>
+    </div>
+
+    <div>
+        <button>Send</button>
+    </div>
+
+    <div>
+        <div
+            role="alert"
+            *ngIf="f.submitted"
+        >
+            Status: {{ message }}
+            <br />
+            <div *ngIf="parentModel">
+                <div style="background-color: red;">
+                    <b>id:</b> {{ parentModel.id }} <br />
+                    <b>text:</b> {{ parentModel.stringVar }}
+                </div>
+                <ul ng-show="!parentModel.childModels.length">
+                    <li *ngFor="let child of parentModel.childModels">
+                        <b>childId:</b> {{ child.id }} <br />
+                        <b>parentId:</b> {{ child.parentId }} <br />
+                        <b>boolVar:</b> {{ child.boolVar }} <br />
+                        <b>charVar:</b> {{ child.charVar }} <br />
+                        <b>dateTimeVar:</b> {{ child.dateTimeVar }} <br />
+                        <b>dateVar:</b> {{ child.dateVar }} <br />
+                        <b>decimalVar:</b> {{ child.decimalVar }} <br />
+                        <b>doubleVar:</b> {{ child.doubleVar }} <br />
+                        <b>enumType:</b> {{ child.enumType }} <br />
+                        <b>floatVar:</b> {{ child.floatVar }} <br />
+                        <b>intNullVar:</b> {{ child.intNullVar }} <br />
+                        <b>intVar:</b> {{ child.intVar }} <br />
+                        <b>stringNullVar:</b> {{ child.stringNullVar }} <br />
+                        <b>stringVar:</b> {{ child.stringVar }}
+                    </li>
+                    <br />
+                </ul>
+            </div>
+        </div>
+    </div>
+</form>

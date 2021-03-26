@@ -1,0 +1,54 @@
+<h1>Board Put</h1>
+
+<form
+    name="form"
+    (ngSubmit)="f.form.valid && onSubmit()"
+    #f="ngForm"
+    novalidate
+    >
+    <div>
+        <label for="id">Id: </label>
+        <input
+            type="text"
+            name="id"
+            [(ngModel)]="form.id"
+            required
+            #id="ngModel"
+        />
+        <div
+            role="alert"
+            *ngIf="id.errors && f.submitted"
+        >
+        Id is required!
+        </div>
+    </div>
+    <div>
+        <label for="stringVar">String var: </label>
+        <input
+            type="text"
+            name="stringVar"
+            [(ngModel)]="form.stringVar"
+            required
+            #stringVar="ngModel"
+        />
+        <div
+            role="alert"
+            *ngIf="stringVar.errors && f.submitted"
+        >
+        stringVar is required!
+        </div>
+    </div>
+
+    <div>
+        <button>Send</button>
+    </div>
+
+    <div>
+        <div
+            role="alert"
+            *ngIf="f.submitted"
+        >
+            Status: {{ message }}
+        </div>
+    </div>
+</form>

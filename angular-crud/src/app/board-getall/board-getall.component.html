@@ -1,0 +1,29 @@
+<h1>Board GetAll</h1>
+
+<ul>
+    <li *ngFor="let parent of parentModels">
+        <div style="background-color: red;">
+            <b>id:</b> {{ parent.id }} <br />
+            <b>text:</b> {{ parent.stringVar }}
+        </div>
+        <ul>
+            <li *ngFor="let child of parent.childModels">
+                <b>childId:</b> {{ child.id }} <br />
+                <b>parentId:</b> {{ child.parentId }} <br />
+                <b>boolVar:</b> {{ child.boolVar }} <br />
+                <b>charVar:</b> {{ child.charVar }} <br />
+                <b>dateTimeVar:</b> {{ child.dateTimeVar }} <br />
+                <b>dateVar:</b> {{ child.dateVar }} <br />
+                <b>decimalVar:</b> {{ child.decimalVar }} <br />
+                <b>doubleVar:</b> {{ child.doubleVar }} <br />
+                <b>enumType:</b> {{ child.enumType }} <br />
+                <b>floatVar:</b> {{ child.floatVar }} <br />
+                <b>intNullVar:</b> {{ child.intNullVar }} <br />
+                <b>intVar:</b> {{ child.intVar }} <br />
+                <b>stringNullVar:</b> {{ child.stringNullVar }} <br />
+                <b>stringVar:</b> {{ child.stringVar }}
+            </li>
+            <br />
+        </ul>
+    </li>
+</ul>
